@@ -9,9 +9,9 @@ body {
 }
 
 .フォーム {
-  max-width: 400px;
-  margin: 0 auto;
-  text-align: center;
+  border: 1px solid #ccc; 
+  padding: 20px; 
+  border-radius: 8px;
 }
 h2 {
   color: #333;
@@ -23,10 +23,10 @@ h3 {
 }
 
 select {
+  width: 100%; 
+  padding: 8px; 
+  margin-bottom: 20px; 
   display: block;
-  margin: 10px auto 30px auto;
-  padding: 8px;
-  font-size: 16px;
 }
 
 button {
@@ -48,9 +48,9 @@ button:hover {
 }
 
 #メッセージ {
-  margin-top: 30px;
-  font-size: 18px;
-  color: #444;
+  margin-top: 15px; 
+  font-weight: bold;
+  color: #d9534f;
 }
 
 /* 📱 スマホ対応 */
