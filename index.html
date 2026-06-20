@@ -171,7 +171,15 @@ function ユーザーIDを取得する(){
 function メッセージを表示する(text){
     document.getElementById("メッセージ").innerText = text;
 }
+function 投票完了画面を表示する(){
 
+    document.querySelector(".フォーム").innerHTML = `
+        <div style="text-align:center;">
+            <h2>投票ありがとうございました！</h2>
+            <p>投票は完了しています。</p>
+        </div>
+    `;
+}
 /**
  * メインの投票処理
  * 1. 選択チェック -> 2. 送信中表示 -> 3. GASへデータ送信 -> 4. 結果表示
@@ -196,9 +204,9 @@ async function 投票する(){
     btn.disabled = true;
     メッセージを表示する("送信中...");
 
-    // GASに送るためのURLを組み立て（クエリパラメータ形式）
-    // 注意: ユーザーIDも含めて送信することで、スプレッドシート側で重複チェックが可能
-    const url = GAS_URL +
+// GASに送るためのURLを組み立て（クエリパラメータ形式）
+// 注意: ユーザーIDも含めて送信することで、スプレッドシート側で重複チェックが可能
+ const url = GAS_URL +
         "?ユーザーID=" + encodeURIComponent(ユーザーIDを取得する()) +
         "&q1=" + encodeURIComponent(q1) +
         "&q2=" + encodeURIComponent(q2) +
@@ -211,9 +219,13 @@ async function 投票する(){
         // GASへデータを送信
         const res = await fetch(url);
         const data = await res.json();
-
-        // GAS側から返ってきたメッセージ（「投票完了」など）を表示
-        メッセージを表示する(data.結果);
+        const data = await res.json();
+        if(data.結果 === "投票完了"){
+            localStorage.setItem("投票済み", "true");
+            投票完了画面を表示する();
+        } else {
+            メッセージを表示する(data.結果);
+        }
     } catch (error) {
         // 通信失敗時の処理
         console.error(error);
@@ -221,6 +233,13 @@ async function 投票する(){
         btn.disabled = false; // 失敗時は再試行できるようにボタンを戻す
     }
 }
+window.addEventListener("DOMContentLoaded", () => {
+
+    if(localStorage.getItem("投票済み") === "true"){
+        投票完了画面を表示する();
+    }
+
+});
 </script>
 
 </body>
