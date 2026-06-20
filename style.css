@@ -1,4 +1,8 @@
 body {
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 600px; 
+  margin: auto;
   background-color: #f5f6fa;
   text-align: center;
   padding-top: 60px;
@@ -8,10 +12,14 @@ body {
     sans-serif;
 }
 
+
 .フォーム {
+  border: 1px solid #ccc;
+  padding: 20px;
   max-width: 400px;
   margin: 0 auto;
   text-align: left;
+  border-radius: 8px;
 }
 h2 {
   color: #333;
@@ -27,6 +35,10 @@ select {
   margin: 10px auto 30px auto;
   padding: 8px;
   font-size: 16px;
+  width: 100%;
+  padding: 8px;
+  margin-bottom:20px;
+  display: block;
 }
 
 button {
@@ -40,6 +52,8 @@ button {
   cursor: pointer;
   transition: 0.2s;
   display: block;
+  width: 100%;
+  padding: 10px;
 }
 
 button:hover {
@@ -50,7 +64,8 @@ button:hover {
 #メッセージ {
   margin-top: 30px;
   font-size: 18px;
-  color: #444;
+  font-weight: bold;
+  color: #d9534f; 
 }
 
 /* 📱 スマホ対応 */
