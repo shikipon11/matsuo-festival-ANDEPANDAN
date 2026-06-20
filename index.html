@@ -222,7 +222,7 @@ async function 投票する(){
 
         console.log(data);
         
-        if(data.結果 === "投票完了"){
+        if(data.結果 === "投票完了"||data.結果 === "既に投票済み"){
             localStorage.setItem("投票済み", "true");
             投票完了画面を表示する();
         } else {
