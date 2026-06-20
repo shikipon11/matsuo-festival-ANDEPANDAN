@@ -42,7 +42,7 @@ select {
 }
 
 button {
-  background-color: #4CAF50;
+  background-color: #cc4125;
   border: none;
   color: white;
   padding: 15px 30px;
@@ -57,7 +57,7 @@ button {
 }
 
 button:hover {
-  background-color: #cc4125;
+  background-color: #f0d2c8;
   transform: scale(1.05);
 }
 
