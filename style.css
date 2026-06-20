@@ -57,7 +57,7 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #cc4125;
   transform: scale(1.05);
 }
 
@@ -98,7 +98,6 @@ button:hover {
     font-size: 20px;
     padding: 18px;
     margin-top: 30px;
-    background-color:#cc4125;
   }
 
   #メッセージ {
