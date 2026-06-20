@@ -219,6 +219,9 @@ async function 投票する(){
         // GASへデータを送信
         const res = await fetch(url);
         const data = await res.json();
+
+        console.log(data);
+        
         if(data.結果 === "投票完了"){
             localStorage.setItem("投票済み", "true");
             投票完了画面を表示する();
